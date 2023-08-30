@@ -26,7 +26,17 @@ output reg [1:0] dime_out: 這個二位寬的信號用於表示需要找回的�
 按下thanks_in後，模塊會返回初始狀態，以等待下一次操作。
 
 ## lab01_tb.v
-測試內容說明...
+目的: 這個testbench用於驗證vending_machine模塊的功能。它模擬不同種類的硬幣投入（dime, quarter）並觀察相應的輸出（candy_out, nickel_out, dime_out）是否符合預期。
+
+流程:  
+1.初始化: 初始化所有輸入和輸出，包括clk, reset, nickel_in, dime_in, quarter_in, 和 thanks_in。設置reset為1以重置vending_machine模塊。  
+2.解除重置: 在125時間單位後，解除reset信號（設置為0），使vending_machine模塊可以開始接收硬幣。  
+3.投入第一個Dime（10分硬幣）: 在一個時鐘上升沿後，設置dime_in為1，模擬投入一個10分硬幣。  
+4.清除Dime輸入: 在下一個時鐘上升沿，清除dime_in。  
+5.投入第二個Dime（10分硬幣）: 再次在一個時鐘上升沿後，設置dime_in為1。  
+6.清除Dime輸入: 在下一個時鐘上升沿，清除dime_in。  
+7.投入Quarter（25分硬幣）: 在下一個時鐘上升沿，設置quarter_in為1，模擬投入一個25分硬幣。  
+8.清除Quarter輸入: 在下一個時鐘上升沿，清除quarter_in。
 
 ## synthesis.log
-合成結果說明...
+https://hackmd.io/o1QeXX0rQs6TIOm3-3JaWA
