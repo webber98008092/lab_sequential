@@ -1,8 +1,8 @@
-# Lab01
+# Lab sequential -- combination lock
 * 實驗目的: 實作一個密碼鎖的邏輯，只有當輸入正確密碼時才會解鎖
 * 摘要: 參考下方 hackmd 檔案 
 
-## lab01.v
+## combination_lock.v
 輸入和輸出:  
 input [3:0] x: 4位數字輸入，用於設定或解鎖組合鎖。  
 input clk: 時鐘信號。  
@@ -24,7 +24,7 @@ output [3:0] seven_segment_enable: 用於七段顯示器的使能信號。
 狀態顯示: 使用七段顯示器來顯示當前的組合鎖狀態。  
 開門與鎖門: 提供開門和鎖門的功能。當狀態達到s2346時，door_open會變為1，表示門已開；當lock信號為1時，門會鎖上。
 
-## lab01_tb.v
+## combination_lock_tb.v
 目的: 驗證combination_lock模塊的功能，特別是其解鎖和鎖定的行為，以及七段顯示器的輸出。  
 流程:  
 1.初始化: 在模擬開始時，將所有的輸入信號設置為其初始值。這包括將clk設置為0、reset設置為1（啟動重置）、x設置為0、enter和lock都設置為0。  
