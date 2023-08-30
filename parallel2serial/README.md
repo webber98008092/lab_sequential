@@ -24,7 +24,7 @@ output serial_end：序列數據結束的信號
 serial_start 信號表示第一個位是否正在被輸出。
 
 ## parallel2serial_tb.v
-目的: 確保 parallel2serial 模塊能正確地將8位元的平行輸入資料 (a) 轉換為序列輸出 (d)。
+目的: 確保 parallel2serial 模塊能正確地將8位元的平行輸入資料 (a) 轉換為序列輸出 (d)。  
 流程:  
 1.初始化變數與信號: 首先，初始化 clk（時鐘）、reset（重置）、parallel_begin（平行開始信號）、a（8位元平行輸入）等變數。  
 2.設定重置和輸入: 在模擬時間為 125 時單位後，將 reset 設為0和 a 設為特定的8位元值（8'b11010011）。  
