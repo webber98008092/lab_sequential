@@ -2,7 +2,7 @@
 * 實驗目的: 這個模塊是一個販賣機的模擬器，其用途是接收不同面值的硬幣（nickel、dime、quarter）並根據累計的金額發放糖果和找零。
 * 摘要: 參考下方 hackmd 檔案
 
-## lab01.v
+## vending_machine.v
 輸入和輸出:  
 input clk: 時鐘信號，用於同步所有的操作。  
 input reset: 當這個信號為高時，模塊會被重置到初始狀態。  
@@ -25,7 +25,7 @@ output reg [1:0] dime_out: 這個二位寬的信號用於表示需要找回的�
 在發放糖果後，如果累計的金額超過25美分，會找零。  
 按下thanks_in後，模塊會返回初始狀態，以等待下一次操作。
 
-## lab01_tb.v
+## vending_machine_tb.v
 目的: 這個testbench用於驗證vending_machine模塊的功能。它模擬不同種類的硬幣投入（dime, quarter）並觀察相應的輸出（candy_out, nickel_out, dime_out）是否符合預期。
 
 流程:  
