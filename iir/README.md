@@ -1,6 +1,6 @@
 # Lab sequential -- iir
 * 實驗目的: 實作一個簡單的Infinite Impulse Response 邏輯
-* 摘要...
+* 摘要: 參考下方 hackmd 檔案
 
 ## iir.v
 輸入和輸出:  
