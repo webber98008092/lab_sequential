@@ -8,7 +8,7 @@ input serial_start: 用於觸發序列到並行轉換的開始。
 input d: 這是序列（serial）輸入數據。  
 input clk: 這是時鐘信號。  
 input reset: 這是重置信號。  
-output reg [7:0] a: 這是並行（parallel）輸出數據。  
+output reg [7:0] a: 這是並行（parallel）輸出數據。
 output reg end_conversion: 轉換結束時，此信號會變為1。  
 
 ## serial2parallel_tb.v
