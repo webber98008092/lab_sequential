@@ -21,7 +21,7 @@ output reg uart_tx: 輸出的UART信號，是轉換後的串行數據。
 ## uart_transmitter_tb.v
 目的: 這個testbench的主要目的是驗證uart_transmitter模塊的功能，特別是它是否能正確地將8位並行數據轉換為一個串行UART信號。
 
-流程:
+流程:  
 1.初始化變量和信號:
 * clk 被初始化為1。
 * reset 被初始化為1以復位uart_transmitter模塊。
