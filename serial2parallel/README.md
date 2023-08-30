@@ -24,6 +24,7 @@ serial_start用於觸發轉換的開始。
 
 ## serial2parallel_tb.v
 目的: 確保 serial2parallel module 能正確地將 8 位的序列(serial)數據轉換為一個 8 位的並行(parallel)數據。  
+流程:  
 1.初始化變量：在開始測試之前，所有的信號和變量（如 clk, reset, d, serial_start 和 data）都被初始化。  
 2.產生時鐘和重置信號：使用 always block 來模擬時鐘信號。一開始，reset 信號設置為 1，然後在模擬時間為 125 單位後設為 0。  
 3.輸入序列數據：初始的序列數據（d）由 data 變數給出。在模擬時間為 10 單位後，serial_start 設為 1，並開始輸入 data 的第一個位。  
