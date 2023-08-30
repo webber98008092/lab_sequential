@@ -1,6 +1,6 @@
 # Lab sequential -- uart_receiver
-* 實驗目的...
-* 摘要...
+* 實驗目的: 實作uart接口的接收器，將serial uart_rx 轉成 parallel data。
+* 摘要: 參考下方 hackmd 檔案
 
 ## uart_receiver.v
 輸入和輸出:  
@@ -21,7 +21,13 @@ next_state, next_counter, 和 next_data 用於存儲下一個時鐘週期將要�
 這個模塊主要負責將從UART接口接收的串行數據轉換為8位並行數據。它會在接收完一個8位字節後，透過valid_data信號標記該數據為有效。這樣，上層模塊可以知道何時讀取data。
 
 ## uart_receiver_tb.v
-測試內容說明...
+目的: 這個testbench的主要目的是驗證uart_receiver模塊的功能，確保它能夠正確地從UART接口接收串行數據並將其轉換成8位並行數據。
+
+流程:  
+1.初始化信號和變數: 在模擬的一開始，所有的信號（clk, reset, uart_rx, baud_rate_signal）都被初始化。特別是，reset被設置為1以重置uart_receiver模塊。  
+2.模塊重置和啟動: 在模擬時間125單位後，reset信號被設置為0，以允許uart_receiver模塊開始運行。  
+3.數據輸入和驗證: 使用一個for迴圈和uart變數（包含14位預定義串行數據）來模擬UART接收。在每個clk的上升沿，uart_rx和baud_rate_signal都會更新，模擬串行數據接收。這樣可以驗證uart_receiver是否能正確地接收和轉換這些數據。
+
 
 ## synthesis.log
-合成結果說明...
+https://hackmd.io/eLoqUebVQLSEXTywwFy4DA
