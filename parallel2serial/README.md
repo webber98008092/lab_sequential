@@ -24,7 +24,25 @@ output serial_end：序列數據結束的信號
 serial_start 信號表示第一個位是否正在被輸出。
 
 ## parallel2serial_tb.v
+目的:
+確保 parallel2serial 模塊能正確地將8位元的平行輸入資料 (a) 轉換為序列輸出 (d)。
 
+流程:
+初始化變數與信號: 首先，初始化 clk（時鐘）、reset（重置）、parallel_begin（平行開始信號）、a（8位元平行輸入）等變數。
+
+設定重置和輸入: 在模擬時間為 125 時單位後，將 reset 設為0和 a 設為特定的8位元值（8'b11010011）。
+
+啟動平行轉序列轉換: 在模擬時間為 135 時單位後，將 parallel_begin 設置為1，開始平行到序列的轉換。
+
+捕捉第一個序列輸出: 在模擬時間為 136 時單位後，捕捉輸出 d 並儲存在 out[0]。
+
+捕捉後續的序列輸出: 接著，進行一個迴圈，每9時單位采樣一次輸出 d，直到18個時單位後（這樣會包含 out[1] 到 out[7]）。
+
+停止平行轉序列轉換: 在迴圈中，將 parallel_begin 設回為0，暫停平行到序列的轉換。
+
+驗證輸出: 檢查序列輸出（儲存在 out 陣列）是否等於原始的平行輸入 a。
+
+輸出結果: 如果 out 與 a 匹配，則顯示 "Test Passed"；否則，顯示 "Test Failed"。
 
 ## synthesis.log
 https://hackmd.io/8PEPlWkwTXST-EFM4zw8PA
