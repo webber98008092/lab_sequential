@@ -11,6 +11,17 @@ input reset: 這是重置信號。
 output reg [7:0] a: 這是並行（parallel）輸出數據。
 output reg end_conversion: 轉換結束時，此信號會變為1。  
 
+主要邏輯:  
+用serial_start信號來初始化counter。  
+在每個clk上升沿，根據counter的值，選擇d（輸入的序列數據）的相應位並儲存在state_reg。  
+當counter計數達到8（N）時，輸出完成的8位並行數據a。
+
+主要功能:  
+將序列輸入d轉換成8位的並行輸出a。  
+提供end_conversion信號以指示轉換是否完成。  
+可以通過reset信號進行重置。  
+serial_start用於觸發轉換的開始。
+
 ## serial2parallel_tb.v
 目的: 確保 serial2parallel module 能正確地將 8 位的序列(serial)數據轉換為一個 8 位的並行(parallel)數據。  
 1.初始化變量：在開始測試之前，所有的信號和變量（如 clk, reset, d, serial_start 和 data）都被初始化。  
