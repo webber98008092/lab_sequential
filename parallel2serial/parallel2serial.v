@@ -28,8 +28,7 @@ module parallel2serial(
     input reset,
     output reg d,
     output reg serial_start,
-    output reg serial_end,
-    output reg [3:0] counter
+    output reg serial_end
     );
     
     reg [3:0] counter;      //register
